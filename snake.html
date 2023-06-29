@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snake Game</title>
+    <style>
+        #game-board {
+            position: relative;
+            height: 600px;
+            width: 800px;
+            border: 1px solid black;
+        }
+        .dot, .apple {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-board"></div>
+    <div id="score">Score: 0</div>
+    <div id="timer">Time: 0</div>
+    <div id="game-over" style="display: none;">
+        <p>Game Over!</p>
+        <button onclick="resetGame()">Play Again</button>
+    </div>
+    <script src="snake.js"></script>
+</body>
+</html>
