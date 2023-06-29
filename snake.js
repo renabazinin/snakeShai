@@ -115,6 +115,10 @@ window.addEventListener('keydown', function(e) {
     }
 });
 
+window.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+}, { passive: false });
+
 function gameOver() {
     flagDone = true;
     document.getElementById('game-over').style.display = 'block';
