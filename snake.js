@@ -149,18 +149,12 @@ gameLoop();
 
 
 
-gameBoard.addEventListener('touchstart', function(e) {
+window.addEventListener('touchstart', function(e) {
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
 });
 
-
-gameBoard.addEventListener('touchstart', function(e) {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-});
-
-gameBoard.addEventListener('touchend', function(e) {
+window.addEventListener('touchend', function(e) {
     let deltaX = e.changedTouches[0].clientX - touchStartX;
     let deltaY = e.changedTouches[0].clientY - touchStartY;
 
