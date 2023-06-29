@@ -148,6 +148,8 @@ setInterval(function() {
 gameLoop();
 
 
+let touchStartX = 0;
+let touchStartY = 0;
 
 window.addEventListener('touchstart', function(e) {
     touchStartX = e.touches[0].clientX;
@@ -160,6 +162,7 @@ window.addEventListener('touchend', function(e) {
 
     if (Math.abs(deltaX) > Math.abs(deltaY)) { // Horizontal swipe
         if (deltaX > 0 && direction.x !== -20) { // Swipe to the right
+    
             direction = { x: 20, y: 0 };
         } else if (deltaX < 0 && direction.x !== 20) { // Swipe to the left
             direction = { x: -20, y: 0 };
