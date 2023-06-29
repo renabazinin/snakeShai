@@ -3,6 +3,25 @@
 <head>
     <title>Snake Game</title>
     <style>
+
+button {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* No border */
+    color: white; /* White text */
+    padding: 15px 32px; /* Some padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* No underline */
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer; /* Mouse pointer on hover */
+    border-radius: 12px; /* Rounded corners */
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
         #game-board {
             position: relative;
             height: 600px;
@@ -15,63 +34,71 @@
             width: 20px;
         }
 
-#controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-#controls div {
-    width: 50px;
-    height: 50px;
-}
+        #controls {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 10px;
+            width: 150px;
+            height: 150px;
+        }
 
-#controls img {
-    width: 100%;
-    height: 100%;
-}
+        #controls #up {
+            grid-column: 2;
+            grid-row: 1;
+        }
 
-#controls #up {
-    order: 1;
-}
+        #controls #down {
+            grid-column: 2;
+            grid-row: 3;
+        }
 
-#controls #down {
-    order: 3;
-}
+        #controls #left {
+            grid-column: 1;
+            grid-row: 2;
+        }
 
-#controls #left, #controls #right {
-    order: 2;
-}
+        #controls #right {
+            grid-column: 3;
+            grid-row: 2;
+        }
 
-#controls #left {
-    align-self: flex-start;
-}
+        #controls div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-#controls #right {
-    align-self: flex-end;
-}
-
+        #controls img {
+            width: 50%; /* Adjust the image size here */
+            height: 50%; /* Adjust the image size here */
+        }
     </style>
 </head>
 <body>
-    <div id="game-board"></div>
-    <div id="score">Score: 0</div>
-    <div id="timer">Time: 0</div>
-    <div id="game-over" style="display: none;">
-        <p>Game Over!</p>
-        <button onclick="resetGame()">Play Again</button>
+    <div id="container">
+        <div id="game-board"></div>
+        <div id="score">Score: 0</div>
+        <div id="timer">Time: 0</div>
+        <div id="game-over" style="display: none;">
+            <p>Game Over!</p>
+            <button onclick="resetGame()">Play Again</button>
+        </div>
+        <button id="easy" onclick="startGame(100)">Easy</button>
+        <button id="hard" onclick="startGame(50)">Hard</button>
+        <div id="controls">
+            <div id="up"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-up-01-512.png"></div>
+            <div id="left"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-left-01-512.png"></div>
+            <div id="right"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-right-01-512.png"></div>
+            <div id="down"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-down-01-512.png"></div>
+        </div>
     </div>
-  
-    <button id="easy" onclick="startGame(100)">Easy</button>
-<button id="hard" onclick="startGame(50)">Hard</button>
-<br/>
-<div id="controls">
-    <div id="up"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-up-01-512.png"></div>
-    <div id="left"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-left-01-512.png"></div>
-    <div id="right"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-right-01-512.png"></div>
-    <div id="down"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-down-01-512.png"></div>
-</div>
-<script src="snake.js"></script>
-
+    <script src="snake.js"></script>
 </body>
 </html>
