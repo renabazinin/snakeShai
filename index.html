@@ -3,29 +3,35 @@
 <head>
     <title>Snake Game</title>
     <style>
+        button {
+            background-color: #4CAF50; /* Green background */
+            border: none; /* No border */
+            color: white; /* White text */
+            padding: 15px 32px; /* Some padding */
+            text-align: center; /* Centered text */
+            text-decoration: none; /* No underline */
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer; /* Mouse pointer on hover */
+            border-radius: 12px; /* Rounded corners */
+        }
 
-button {
-    background-color: #4CAF50; /* Green background */
-    border: none; /* No border */
-    color: white; /* White text */
-    padding: 15px 32px; /* Some padding */
-    text-align: center; /* Centered text */
-    text-decoration: none; /* No underline */
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer; /* Mouse pointer on hover */
-    border-radius: 12px; /* Rounded corners */
-}
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
 
-button:hover {
-    background-color: #45a049; /* Darker green on hover */
-}
-.big-button {
-    font-size: 20px; /* Bigger text */
-    padding: 20px 40px; /* More padding */
-    background-color: #a04545; /* Darker green on hover */
-}
+        .big-button {
+            font-size: 20px; /* Bigger text */
+            padding: 20px 40px; /* More padding */
+            background-color: #a04545; /* Darker green on hover */
+        }
+
+        #game-container {
+            display: flex;
+            justify-content: center; /* Center the game board */
+        }
+   
 
         #game-board {
             position: relative;
@@ -33,80 +39,82 @@ button:hover {
             width: 800px;
             border: 1px solid black;
         }
+
         .dot, .apple {
             position: absolute;
             height: 20px;
             width: 20px;
         }
 
-        #container {
+        #left-section {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
+            margin-right: 20px; /* Add margin for spacing */
+            margin-top: 250px; /* Adjust the margin-top value */
+        }
+
+        #score {
+            margin-bottom: 10px; /* Add margin for spacing */
         }
 
         #controls {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            gap: 10px;
-            width: 150px;
-            height: 150px;
-        }
-
-        #controls #up {
-            grid-column: 2;
-            grid-row: 1;
-        }
-
-        #controls #down {
-            grid-column: 2;
-            grid-row: 3;
-        }
-
-        #controls #left {
-            grid-column: 1;
-            grid-row: 2;
-        }
-
-        #controls #right {
-            grid-column: 3;
-            grid-row: 2;
+     
+            
+            gap: 0px; /* Reduce the gap between controllers */
+            margin-top: 5px;
+            justify-items: center; /* Center the items horizontally */
         }
 
         #controls div {
-            
+        
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-      
+            background-color: #ddd; /* Add background color */
+            cursor: pointer; /* Add cursor pointer */
+        }
 
+        #controls div:hover {
+            background-color: #ccc; /* Darker background on hover */
         }
 
         #controls img {
-            width: 100%; /* Adjust the image size here */
-            height: 100%; /* Adjust the image size here */
+            width: 200px; /* Adjust the image size here */
+            height: 90px; /* Adjust the image size here */
         }
+
+    
     </style>
 </head>
 <body>
-    <div id="container">
-        <div id="game-board"></div>
-        <div id="score">Score: 0</div>
-        <div id="timer">Time: 0</div>
-        <div id="game-over" style="display: none;">
-            <p>Game Over!</p>
-            <button onclick="resetGame()">Play Again</button>
+    <div id="game-container">
+        <div id="left-section">
+            <div id="score">Score: 0</div>
+            <div id="timer">Time: 0</div>
+            <button id="easy" onclick="startGame(100)">Easy</button>
+            <button id="hard" onclick="startGame(50)">Hard</button>
         </div>
-        <button id="easy" onclick="startGame(100)">Easy</button>
-        <button id="hard" onclick="startGame(50)">Hard</button>
-        <div id="controls">
-            <div id="up"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-up-01-512.png"></div>
-            <div id="left"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-left-01-512.png"></div>
-            <div id="right"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-right-01-512.png"></div>
-            <div id="down"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-down-01-512.png"></div>
+        <div id="game-board"></div>
+    </div>
+    <div id="controls">
+        <div style="grid-row: 1; grid-column: 2;" id="up">
+            <div><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-up-01-512.png"></div>
+        </div>
+        <div style="grid-row: 2; grid-column: 2 / span 2;" id="right">
+            <div><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-right-01-512.png"></div>
+        </div>
+        <div style="grid-row: 2; grid-column: 1 / span 2;" id="left">
+            <div><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-left-01-512.png"></div>
+        </div>
+        <div style="grid-row: 3; grid-column: 2;" id="down">
+            <div><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-down-01-512.png"></div>
         </div>
     </div>
+    <br/>
+    <div id="game-over"></div>
     <script src="snake.js"></script>
 </body>
 </html>

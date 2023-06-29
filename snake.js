@@ -112,15 +112,19 @@ function gameLoop(speed) {
 window.addEventListener('keydown', function(e) {
     switch (e.key) {
         case 'ArrowUp': 
+        case 'w':
             if (direction.y !== 20) direction = { x: 0, y: -20 };
             break;
         case 'ArrowDown': 
+        case 's':
             if (direction.y !== -20) direction = { x: 0, y: 20 };
             break;
         case 'ArrowLeft': 
+        case 'a':
             if (direction.x !== 20) direction = { x: -20, y: 0 };
             break;
         case 'ArrowRight': 
+        case 'd':
             if (direction.x !== -20) direction = { x: 20, y: 0 };
             break;
     }
@@ -217,5 +221,11 @@ window.addEventListener('touchmove', function(e) {
 }, { passive: false });
 
 
-
+        // Disable arrow key scrolling
+        window.addEventListener("keydown", function(e) {
+            // Prevent default behavior for arrow keys
+            if ([37, 38, 39, 40].includes(e.keyCode)) {
+                e.preventDefault();
+            }
+        });
 }
