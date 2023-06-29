@@ -154,6 +154,28 @@ gameLoop();
 
 
 
+
+
+
+
+window.onload = function() {
+    document.getElementById('up').addEventListener('click', function() {
+        if (direction.y !== 20) direction = { x: 0, y: -20 };
+    });
+
+    document.getElementById('down').addEventListener('click', function() {
+        if (direction.y !== -20) direction = { x: 0, y: 20 };
+    });
+
+    document.getElementById('left').addEventListener('click', function() {
+        if (direction.x !== 20) direction = { x: -20, y: 0 };
+    });
+
+    document.getElementById('right').addEventListener('click', function() {
+        if (direction.x !== -20) direction = { x: 20, y: 0 };
+    });
+
+    
 window.addEventListener('touchstart', function(e) {
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
@@ -178,21 +200,4 @@ window.addEventListener('touchend', function(e) {
         }
     }
 });
-
-
-
-document.getElementById('up').addEventListener('click', function() {
-    if (direction.y !== 20) direction = { x: 0, y: -20 };
-});
-
-document.getElementById('down').addEventListener('click', function() {
-    if (direction.y !== -20) direction = { x: 0, y: 20 };
-});
-
-document.getElementById('left').addEventListener('click', function() {
-    if (direction.x !== 20) direction = { x: -20, y: 0 };
-});
-
-document.getElementById('right').addEventListener('click', function() {
-    if (direction.x !== -20) direction = { x: 20, y: 0 };
-});
+}
