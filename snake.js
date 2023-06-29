@@ -178,3 +178,21 @@ window.addEventListener('touchend', function(e) {
         }
     }
 });
+
+
+
+document.getElementById('up').addEventListener('click', function() {
+    if (direction.y !== 20) direction = { x: 0, y: -20 };
+});
+
+document.getElementById('down').addEventListener('click', function() {
+    if (direction.y !== -20) direction = { x: 0, y: 20 };
+});
+
+document.getElementById('left').addEventListener('click', function() {
+    if (direction.x !== 20) direction = { x: -20, y: 0 };
+});
+
+document.getElementById('right').addEventListener('click', function() {
+    if (direction.x !== -20) direction = { x: 20, y: 0 };
+});
