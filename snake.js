@@ -38,6 +38,8 @@ function startGame(speed) {
     touchStartX = 0;
     touchStartY = 0;
     // Start the game loop
+    document.getElementById('easy').classList.remove('big-button');
+    document.getElementById('hard').classList.remove('big-button');
     gameLoop(speed);
 }
 
@@ -129,6 +131,8 @@ let gameBoard = document.getElementById('game-board');
 
 
 function gameOver() {
+    document.getElementById('easy').classList.add('big-button');
+    document.getElementById('hard').classList.add('big-button');
     flagDone = true;
     document.getElementById('game-over').style.display = 'block';
     
