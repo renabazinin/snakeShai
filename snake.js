@@ -7,7 +7,7 @@ body.src = 'http://wildlifehumane.org/wp-content/uploads/2020/06/snake-skin-1000
 let appleImg = new Image();
 appleImg.src = 'https://i.imgur.com/BZbYspy.png';
 
-
+/*
 let apple = { x: Math.floor(Math.random() * 40) * 20, y: Math.floor(Math.random() * 30) * 20 };
 let snake = [{ x: 0, y: 0 }];
 let direction = { x: 20, y: 0 };
@@ -15,8 +15,25 @@ let direction = { x: 20, y: 0 };
 let score = 0;
 let time = 0;
 let flagDone = false;
+*/
+function startGame(speed) {
+    // Initialize or reset all game variables
+    apple = { x: Math.floor(Math.random() * 40) * 20, y: Math.floor(Math.random() * 30) * 20 };
+    snake = [{ x: 0, y: 0 }];
+    direction = { x: 20, y: 0 };
+    score = 0;
+    time = 0;
+    flagDone = false;
+    document.getElementById('score').innerText = 'Score: 0';
+    document.getElementById('timer').innerText = 'Time: 0';
+    document.getElementById('game-over').style.display = 'none';
 
-function gameLoop() {
+    // Start the game loop
+    gameLoop(speed);
+}
+
+
+function gameLoop(speed) {
     if (flagDone) return;
 
     let gameBoard = document.getElementById('game-board');
@@ -75,8 +92,10 @@ function gameLoop() {
         gameBoard.appendChild(partElement);
     }
 
-    setTimeout(gameLoop, 100);
+    //setTimeout(gameLoop, 50);
     //gameLoop();
+    
+    setTimeout(function() { gameLoop(speed); }, speed);
 }
 
 window.addEventListener('keydown', function(e) {
