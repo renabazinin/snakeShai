@@ -16,6 +16,9 @@ let score = 0;
 let time = 0;
 let flagDone = false;
 */
+
+let touchStartX = 0;
+let touchStartY = 0;
 function startGame(speed) {
     // Initialize or reset all game variables
     apple = { x: Math.floor(Math.random() * 40) * 20, y: Math.floor(Math.random() * 30) * 20 };
@@ -27,7 +30,8 @@ function startGame(speed) {
     document.getElementById('score').innerText = 'Score: 0';
     document.getElementById('timer').innerText = 'Time: 0';
     document.getElementById('game-over').style.display = 'none';
-
+    touchStartX = 0;
+    touchStartY = 0;
     // Start the game loop
     gameLoop(speed);
 }
@@ -148,8 +152,7 @@ setInterval(function() {
 gameLoop();
 
 
-let touchStartX = 0;
-let touchStartY = 0;
+
 
 window.addEventListener('touchstart', function(e) {
     touchStartX = e.touches[0].clientX;
