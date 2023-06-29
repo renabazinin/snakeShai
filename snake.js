@@ -24,7 +24,15 @@ let touchStartX = 0;
 let touchStartY = 0;
 let apple = { x: Math.floor(Math.random() * 40) * 20, y: Math.floor(Math.random() * 30) * 20 };
 
+let isGameon =false;
+
 function startGame(speed) {
+
+   if(isGameon)
+   {
+    return;
+   }
+   isGameon=true
     // Initialize or reset all game variables
     apple = { x: Math.floor(Math.random() * 40) * 20, y: Math.floor(Math.random() * 30) * 20 };
     snake = [{ x: 0, y: 0 }];
@@ -135,6 +143,7 @@ let gameBoard = document.getElementById('game-board');
 
 
 function gameOver() {
+    isGameon=false;
     document.getElementById('easy').classList.add('big-button');
     document.getElementById('hard').classList.add('big-button');
     flagDone = true;
@@ -144,6 +153,7 @@ function gameOver() {
 }
 
 function resetGame() {
+    isGameon=false;
     snake = [{ x: 0, y: 0 }];
     direction = { x: 20, y: 0 };
     score = 0;
