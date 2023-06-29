@@ -16,9 +16,14 @@ let score = 0;
 let time = 0;
 let flagDone = false;
 */
-
+let snake = [{ x: 0, y: 0 }];
+let direction = { x: 20, y: 0 };
+let time = 0;
+let flagDone=true;
 let touchStartX = 0;
 let touchStartY = 0;
+let apple = { x: Math.floor(Math.random() * 40) * 20, y: Math.floor(Math.random() * 30) * 20 };
+
 function startGame(speed) {
     // Initialize or reset all game variables
     apple = { x: Math.floor(Math.random() * 40) * 20, y: Math.floor(Math.random() * 30) * 20 };
@@ -159,7 +164,9 @@ gameLoop();
 
 
 window.onload = function() {
+
     document.getElementById('up').addEventListener('click', function() {
+   
         if (direction.y !== 20) direction = { x: 0, y: -20 };
     });
 
@@ -200,4 +207,11 @@ window.addEventListener('touchend', function(e) {
         }
     }
 });
+
+window.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+}, { passive: false });
+
+
+
 }
