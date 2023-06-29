@@ -16,7 +16,9 @@
             cursor: pointer; /* Mouse pointer on hover */
             border-radius: 12px; /* Rounded corners */
         }
-
+        #game-over{
+            width: 60px;
+        }
         button:hover {
             background-color: #45a049; /* Darker green on hover */
         }
@@ -96,9 +98,11 @@
             <div id="timer">Time: 0</div>
             <button id="easy" onclick="startGame(100)">Easy</button>
             <button id="hard" onclick="startGame(50)">Hard</button>
+            <div id="game-over"></div>
         </div>
         <div id="game-board"></div>
     </div>
+    
     <div id="controls">
         <div style="grid-row: 1; grid-column: 2;" id="up">
             <div><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-up-01-512.png"></div>
@@ -114,7 +118,7 @@
         </div>
     </div>
     <br/>
-    <div id="game-over"></div>
+
     <script src="snake.js"></script>
 </body>
 </html>
