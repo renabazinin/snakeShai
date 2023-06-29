@@ -149,7 +149,7 @@ function gameOver() {
     flagDone = true;
     document.getElementById('game-over').style.display = 'block';
     
-    document.getElementById('game-over').innerHTML = 'GameOver\nscore: '+score +' time:'+time+' sec';
+    document.getElementById('game-over').innerHTML = 'GameOver\nscore: '+score +' time: '+time+' sec';
 }
 
 function resetGame() {
