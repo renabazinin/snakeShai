@@ -115,9 +115,16 @@ window.addEventListener('keydown', function(e) {
     }
 });
 
-window.addEventListener('touchmove', function(e) {
+let gameBoard = document.getElementById('game-board');
+
+gameBoard.addEventListener('touchstart', function(e) {
     e.preventDefault();
 }, { passive: false });
+
+gameBoard.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+}, { passive: false });
+
 
 function gameOver() {
     flagDone = true;
