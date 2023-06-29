@@ -117,13 +117,6 @@ window.addEventListener('keydown', function(e) {
 
 let gameBoard = document.getElementById('game-board');
 
-gameBoard.addEventListener('touchstart', function(e) {
-    e.preventDefault();
-}, { passive: false });
-
-gameBoard.addEventListener('touchmove', function(e) {
-    e.preventDefault();
-}, { passive: false });
 
 
 function gameOver() {
@@ -155,12 +148,19 @@ setInterval(function() {
 gameLoop();
 
 
-window.addEventListener('touchstart', function(e) {
+
+gameBoard.addEventListener('touchstart', function(e) {
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
 });
 
-window.addEventListener('touchend', function(e) {
+
+gameBoard.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+});
+
+gameBoard.addEventListener('touchend', function(e) {
     let deltaX = e.changedTouches[0].clientX - touchStartX;
     let deltaY = e.changedTouches[0].clientY - touchStartY;
 
